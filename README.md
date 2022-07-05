@@ -39,19 +39,15 @@ Run following CLI commands to configure your tenant.
     --subjects "roles:ansible-role"
     ```
 
-Now create client credentials for that role:
+5. Optionally verify that using client credentials you can read secret:
 
-
-
-Optionally verify that using client credentials you can read secret:
-
-```
-dsv secret read \
-  --path ansible-secrets:first \
-  --auth-type clientcred \
-  --auth-client-id '<CLIENT ID>' \
-  --auth-client-secret '<CLIENT SECRET>'
-```
+    ```
+    dsv secret read \
+    --path ansible-secrets:first \
+    --auth-type clientcred \
+    --auth-client-id '<CLIENT ID>' \
+    --auth-client-secret '<CLIENT SECRET>'
+    ```
 
 ## Execution Environment
 
