@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars:
+      secret: >-
+        {{ lookup(
+            'dsv',
+            'ansible-secrets:first',
+            tenant=MY_DSV_TENANT,
+            client_id=MY_DSV_CLIENT_ID,
+            client_secret=MY_DSV_CLIENT_SECRET,
+        ) }}
+  tasks:
+    - debug: msg='DSV tenant is {{ MY_DSV_TENANT }}'
+    - debug: msg='the password is {{ secret["data"]["fundamental"] }}'
