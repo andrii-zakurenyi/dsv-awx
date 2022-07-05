@@ -2,7 +2,7 @@
   vars:
       secret: >-
         {{ lookup(
-            'dsv',
+            'community.general.dsv',
             'ansible-secrets:first',
             tenant=MY_DSV_TENANT,
             client_id=MY_DSV_CLIENT_ID,
