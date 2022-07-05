@@ -1,5 +1,12 @@
 # DSV Lookup in AWX
 
+---
+
+- https://docs.ansible.com/ansible/latest/collections/community/general/dsv_lookup.html
+- https://github.com/ansible/awx-operator
+
+---
+
 ## Execution Environment
 
 You can use Execution Environment that I created:
