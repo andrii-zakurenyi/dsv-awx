@@ -7,6 +7,52 @@
 
 ---
 
+## Configure DSV
+
+Run following CLI commands to configure your tenant.
+
+1. Create a secret:
+
+    ```
+    dsv secret create --path ansible-secrets:first --data '{"fundamental":"1"}'
+    ```
+
+2. Create a role:
+
+    ```
+    dsv role create --name ansible-role
+    ```
+
+3. Create a client credentials:
+
+    ```
+    dsv client create --role ansible-role
+    ```
+
+4. Allow the role to read the secret:
+
+    ```
+    dsv policy create \
+    --path "secrets:ansible-secrets" \
+    --actions read \
+    --effect allow \
+    --subjects "roles:ansible-role"
+    ```
+
+Now create client credentials for that role:
+
+
+
+Optionally verify that using client credentials you can read secret:
+
+```
+dsv secret read \
+  --path ansible-secrets:first \
+  --auth-type clientcred \
+  --auth-client-id '<CLIENT ID>' \
+  --auth-client-secret '<CLIENT SECRET>'
+```
+
 ## Execution Environment
 
 You can use Execution Environment that I created:
